@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { router, useLocalSearchParams } from "expo-router";
+import { ProductDataSource } from "@/model/dataSource/productDataSource";
 import type { Product } from "@/model/entities/product";
-import { ProductDatabase } from "@/model/data/productDatabase";
+import { router, useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
 
 export type ProdutoState = {
   produto: Product | null;
@@ -25,7 +25,7 @@ export function useProdutoViewModel(): [ProdutoState, ProdutoActions] {
   const [carregando, setCarregando] = useState<boolean>(true);
   const [erro, setErro] = useState<string | null>(null);
 
-  const db = ProductDatabase.getInstance();
+  const db = ProductDataSource.getInstance();
 
   useEffect(() => {
     async function carregarDetalhes(): Promise<void> {

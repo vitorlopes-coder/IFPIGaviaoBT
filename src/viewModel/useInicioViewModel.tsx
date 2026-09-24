@@ -1,7 +1,7 @@
+import { CategoryDataSource } from '@/model/dataSource/categoryDataSource';
+import type { Categoria } from '@/model/entities/category';
+import { router } from "expo-router";
 import { useEffect, useState } from "react";
-import { router } from "expo-router"
-import type { Categoria } from '@/model/entities/category'
-import { CategoryDatabase } from '@/model/data/categoryDatabase'
 
 export type InicioState = {
     categorias: Array<Categoria>;
@@ -19,7 +19,7 @@ export function useInicioViewModel(): [InicioState, InicioActions] {
     const [carregando, setCarregando] = useState<boolean>(true);
     const [erro, setErro] = useState<string | null>(null);
 
-    const bd = CategoryDatabase.getInstance();
+    const bd = CategoryDataSource.getInstance();
 
     useEffect(() => {
         async function carregarCategorias(): Promise<void> {

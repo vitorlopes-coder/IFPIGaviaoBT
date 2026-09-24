@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { router, useLocalSearchParams } from "expo-router";
+import { ProductDataSource } from "@/model/dataSource/productDataSource";
 import type { Product } from "@/model/entities/product";
-import { ProductDatabase } from "@/model/data/productDatabase";
+import { router, useLocalSearchParams } from "expo-router";
+import { useEffect, useState } from "react";
 
 export type CategoriaState = {
   categoriaId: string;
@@ -28,10 +28,10 @@ export function useCategoriaViewModel(): [CategoriaState, CategoriaActions] {
     categoriaId === "bebidas"
       ? "Bebidas"
       : categoriaId === "comidas"
-      ? "Comidas"
-      : "Cardápio";
+        ? "Comidas"
+        : "Cardápio";
 
-  const db = ProductDatabase.getInstance();
+  const db = ProductDataSource.getInstance();
 
   useEffect(() => {
     async function carregarProdutos(): Promise<void> {
