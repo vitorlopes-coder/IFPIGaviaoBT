@@ -2,8 +2,8 @@ import { Product } from "../entities/product";
 
 const DELAY_MS = 600;
 
-export class ProductDatabase {
-  private static instance: ProductDatabase;
+export class ProductDataSource {
+  private static instance: ProductDataSource;
 
   private produtos: Product[] = [
     {
@@ -120,17 +120,17 @@ export class ProductDatabase {
     },
   ];
 
-  private constructor() {}
+  private constructor() { }
 
   /**
    * Objetivo: Obter a instância única (Singleton) do banco de produtos
-   * @returns A instância única de ProductDatabase
+   * @returns A instância única de ProductDataSource
    */
-  public static getInstance(): ProductDatabase {
-    if (!ProductDatabase.instance) {
-      ProductDatabase.instance = new ProductDatabase();
+  public static getInstance(): ProductDataSource {
+    if (!ProductDataSource.instance) {
+      ProductDataSource.instance = new ProductDataSource();
     }
-    return ProductDatabase.instance;
+    return ProductDataSource.instance;
   }
 
   /**
@@ -154,4 +154,4 @@ export class ProductDatabase {
   }
 }
 
-export const productDatabase = ProductDatabase.getInstance();
+export const productDataSource = ProductDataSource.getInstance();

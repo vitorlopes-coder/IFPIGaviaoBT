@@ -2,8 +2,8 @@ import { Categoria } from "../entities/category";
 
 const DELAY_MS = 600;
 
-export class CategoryDatabase {
-  private static instance: CategoryDatabase;
+export class CategoryDataSource {
+  private static instance: CategoryDataSource;
 
   private categorias: Categoria[] = [
     {
@@ -26,13 +26,13 @@ export class CategoryDatabase {
 
   /**
    * Objetivo: Obter a instância única (Singleton) do banco de categorias
-   * @returns A instância única de CategoryDatabase
+   * @returns A instância única de CategoryDataSource
    */
-  public static getInstance(): CategoryDatabase {
-    if (!CategoryDatabase.instance) {
-      CategoryDatabase.instance = new CategoryDatabase();
+  public static getInstance(): CategoryDataSource {
+    if (!CategoryDataSource.instance) {
+      CategoryDataSource.instance = new CategoryDataSource();
     }
-    return CategoryDatabase.instance;
+    return CategoryDataSource.instance;
   }
 
   /**
@@ -55,4 +55,4 @@ export class CategoryDatabase {
   }
 }
 
-export const categoryDatabase = CategoryDatabase.getInstance();
+export const categoryDataSource = CategoryDataSource.getInstance();
