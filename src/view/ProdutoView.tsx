@@ -16,7 +16,7 @@ function formatarPreco(valor: number): string {
   return `R$ ${valor.toFixed(2).replace(".", ",")}`;
 }
 
-export const ProdutoView = () => {
+const ProdutoView = () => {
   const [produtoState, produtoActions] = useProdutoViewModel();
   const { produto, quantidade, carregando, erro } = produtoState;
 
