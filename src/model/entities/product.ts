@@ -8,6 +8,6 @@ export type Product = {
     proteinas: string,
     carboidratos: string,
     gorduras: string,
-    imagem: NodeJS.Require
-    imagemGrande: NodeJS.Require
+    imagem: string,
+    imagemGrande: string
 }

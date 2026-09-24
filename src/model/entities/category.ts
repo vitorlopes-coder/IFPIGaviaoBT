@@ -3,6 +3,6 @@ export type Categoria = {
     nome: string
     corBorda: string
     corSeta: string
-    imagem: NodeJS.Require
+    imagem: string
 }
 
